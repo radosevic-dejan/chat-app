@@ -7,7 +7,7 @@ export const LogOut = () => {
     }
   return (
     <div className="py-1 pr-2">
-        <button onClick={() => auth.signOut()}>Logout</button>
+        <button className="text-white font-semibold mt-0.5 py-1 px-3 bg-[#4285F4] rounded-lg hover:text-[#4285F4] hover:bg-white" onClick={() => auth.signOut()}>Logout</button>
     </div>
   )
 }

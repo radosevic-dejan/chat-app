@@ -1,11 +1,16 @@
-import React from 'react'
+import { auth } from "../firebase/firebaseDb";
 
 export const Msg = ({ message }) => {
-    const { text } = message;
+    const { text, name, uid } = message;
+    const style = 
+      uid === auth.currentUser.uid ? " ml-10 bg-lime-300": " mr-10 bg-[#9864F2] text-right";
+    const userPosition =
+    uid === auth.currentUser.uid ? "left-10": "right-10"
+    
   return (
-    <div>
-        <p>{ name }</p>
-        <p>{ text }</p>
+    <div className={`mt-4 mb-2 border px-2 py-2 rounded-xl relative ${style}`}>
+        <p className={`absolute text-xs text-white font-semibold bottom-8 px-3 py-1 bg-slate-500 rounded-md ${userPosition}`}>{ name }</p>
+        <p className='text-lg'>{ text }</p>
     </div>
   )
 }
