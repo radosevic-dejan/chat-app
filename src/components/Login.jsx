@@ -10,9 +10,7 @@ const signIn = () => {
 }
 
 export const Login = () => {
-    const [ user ] = useAuthState(auth);
-    console.log(<GoogleButton />)
-    console.log(user)
+
   return <div className="py-1 pr-2">
     <GoogleButton className="uppercase font-bold" onClick={ signIn } label="Login"/>
   </div>;

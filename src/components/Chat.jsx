@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot, doc, deleteField } from "firebase/firestore";
 import { db } from "../firebase/firebaseDb";
 import { Msg } from "./Msg";
 import { SendMsg } from "./SendMsg";
@@ -19,12 +19,17 @@ export const Chat = () => {
     });
     return () => unsubscribe();
   }, []);
+
+ 
+  console.log(messages)
+
   return (
     <div>
       <main>
         {messages &&
           messages.map((message) => {
-            return <Msg key={message.id} message={message} />;
+            const msgId = message.id;
+            return <Msg key={msgId} message={message} />;
           })}
       </main>
       <SendMsg scroll={scroll} />
