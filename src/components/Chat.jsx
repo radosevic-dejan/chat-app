@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { query, collection, orderBy, onSnapshot, doc, deleteField } from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseDb";
 import { Msg } from "./Msg";
 import { SendMsg } from "./SendMsg";
@@ -21,7 +21,10 @@ export const Chat = () => {
   }, []);
 
  
-  console.log(messages)
+  const handleDelete = async(id) => {
+    const userDoc = doc(db, "messages", id)
+    await deleteDoc(userDoc);
+  }
 
   return (
     <div>
@@ -29,7 +32,7 @@ export const Chat = () => {
         {messages &&
           messages.map((message) => {
             const msgId = message.id;
-            return <Msg key={msgId} message={message} />;
+            return <Msg key={msgId} message={message} deleteDoc={handleDelete} id={msgId} />;
           })}
       </main>
       <SendMsg scroll={scroll} />
