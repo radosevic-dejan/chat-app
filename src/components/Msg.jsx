@@ -17,7 +17,7 @@ export const Msg = ({ message, deleteDoc }) => {
         <p className={`absolute text-xs text-white font-semibold bottom-8 px-3 py-1 bg-slate-500 rounded-md ${userPosition}`}>{ name }</p>
         <div className="flex justify-between">
         <p className='text-lg'>{ text }</p>
-        <button className={`${id === "YAgy8Kt5OLKn6w2RRvaH" ? "hidden" : "inline"} font-bold bg-slate-300 px-2 py-1 rounded-lg`} onClick={() => deleteDoc(id)} disabled={id === "YAgy8Kt5OLKn6w2RRvaH" ? true : false}>Delete</button>
+        <button className={`${id === "YAgy8Kt5OLKn6w2RRvaH" ? "hidden" : "inline"} font-bold bg-slate-300 px-2 py-1 rounded-lg`} onClick={() => deleteDoc(id)}>Delete</button>
         </div>
     </div>
   )
