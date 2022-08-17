@@ -25,8 +25,9 @@ export const Chat = () => {
     const userDoc = doc(db, "messages", id)
     await deleteDoc(userDoc);
   }
-
+  console.log(messages)
   return (
+    
     <div>
       <main>
         {messages &&
